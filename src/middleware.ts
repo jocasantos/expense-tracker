@@ -4,7 +4,6 @@ import { NextResponse } from "next/server";
 
 export default authMiddleware({
     publicRoutes: ["/"],
-    debug: true,
 
   afterAuth (auth, req, evt)  {
     // Handle users who aren't authenticated
