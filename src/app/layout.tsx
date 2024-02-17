@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/ui/theme-provider";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,21 +18,30 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
-      <body
-        className={cn("relative h-full font-sans antialiased", inter.className)}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
+    <ClerkProvider
+      appearance={{
+        variables: { colorPrimary: "#4797FF" },
+      }}
+    >
+      <html lang="en" className="h-full">
+        <body
+          className={cn(
+            "relative h-full font-sans antialiased",
+            inter.className
+          )}
         >
-          <main className="relative flex flex-col min-h-screen">
-            <div className="flex-grow flex-1">{children}</div>
-          </main>
-        </ThemeProvider>
-      </body>
-    </html>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <main className="relative flex flex-col min-h-screen">
+              <div className="flex-grow flex-1">{children}</div>
+            </main>
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

@@ -13,7 +13,7 @@ import {
 import ModeToggle from "./ui/modetoggle";
 import { Button, buttonVariants } from "./ui/button";
 import { usePathname } from "next/navigation";
-import { get } from "http";
+import { SignOutButton, UserButton } from "@clerk/nextjs";
 
 export default function SideNav() {
   const pathname = usePathname();
@@ -78,17 +78,19 @@ export default function SideNav() {
 
       <div className="lg:h-60 lg:border-b-2 lg:block hidden"></div>
       <div className="flex lg:flex-col items-center lg:space-x-0 lg:px-5 space-x-6 flex-row ml-5 lg:ml-0">
-        <div className=" lg:mb-2 ">
+        {/* <div className=" lg:mb-2 ">
           <Avatar>
             <AvatarImage src="https://github.com/shadcn.png" />
             <AvatarFallback></AvatarFallback>
           </Avatar>
         </div>
-        <p className="hidden lg:block">Mock Name</p>
+        <p className="hidden lg:block">Mock Name</p> */}
         {/* <div className="flex space-x-2 py-5">
           <LogOut />
           <p className="hidden text-gray-500 lg:block">Term. sessão</p>
         </div> */}
+        <UserButton afterSignOutUrl="/" />
+
         <div className="lg:my-10 lg:pr-0 pr-4">
           <ModeToggle />
         </div>
