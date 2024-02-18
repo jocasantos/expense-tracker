@@ -31,12 +31,12 @@ export default function SideNav() {
       </div> */}
       <Link href="/painel">
         <div className="flex justify-center align-items-center lg:h-44 relative lg:pl-0 pl-1 lg:pt-4">
-          <div className="lg:h-14 lg:w-48 w-20 h-20 relative">
+          <div className="lg:h-14 lg:w-48 w-20 h-20 relative dark:hidden">
             <Image src="/logo5.png" alt="logo" fill />
           </div>
-          {/* <div className="relative -ml-10 items-center lg:flex hidden">
-            <span className="lg:text-3xl lg:mt-20">DC</span>
-          </div> */}
+          <div className="dark:lg:h-14 dark:lg:w-48 dark:w-20 dark:h-20 dark:relative dark:block hidden">
+            <Image src="/logo7.png" alt="logo" fill />
+          </div>
         </div>
       </Link>
       <div className=" lg:block lg:-mt-8 hidden"></div>

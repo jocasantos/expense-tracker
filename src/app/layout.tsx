@@ -4,12 +4,13 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
+import { neobrutalism } from "@clerk/themes";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Controla as tuas despesas",
-  description: "Um rastreador de despesas simples e fácil de usar.",
+  title: "Despesas Controladas",
+  description: "Controla as tuas despesas.",
 };
 
 export default function RootLayout({
@@ -21,6 +22,7 @@ export default function RootLayout({
     <ClerkProvider
       appearance={{
         variables: { colorPrimary: "#4797FF" },
+        baseTheme: neobrutalism,
       }}
     >
       <html lang="en" className="h-full">
