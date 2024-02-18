@@ -2,13 +2,16 @@ import SideNav from "@/components/SideNav";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex flex-col h-screen lg:flex lg:flex-row">
-      <div className="lg:w-56 lg:h-screen w-full h-20">
-        <SideNav />
+    <>
+      <div className="relative -z-2 min-h-screen min-w-screen bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,163,255,0.3),rgba(255,255,255,0))]">
+        {/* <div className="flex flex-col h-screen lg:flex lg:flex-row  "> */}
+        <div className="grid grid-cols-[224px,_1fr] space-x-4 p-4 min-h-screen">
+          <SideNav />
+          <div className="p-4 rounded-lg backdrop-filter backdrop-blur-md bg-opacity-10 border-4 border-blue-200 ">
+            {children}
+          </div>
+        </div>
       </div>
-      <div className="flex-grow p-6 bg-gray-100 dark:bg-slate-600 lg:p-12 ">
-        {children}
-      </div>
-    </div>
+    </>
   );
 }
