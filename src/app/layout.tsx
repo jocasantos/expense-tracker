@@ -27,7 +27,7 @@ export default function RootLayout({
         baseTheme: neobrutalism,
       }}
     >
-      <html lang="en" className="h-full">
+      <html lang="en" suppressHydrationWarning className="h-full">
         <body
           className={cn(
             "relative h-full font-sans antialiased",

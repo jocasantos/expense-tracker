@@ -2,19 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  ChevronLeftCircle,
-  CreditCard,
-  HandCoins,
-  LayoutDashboard,
-  LogOut,
-} from "lucide-react";
+import { CreditCard, HandCoins, LayoutDashboard } from "lucide-react";
 import ModeToggle from "./ui/modetoggle";
-import { Button, buttonVariants } from "./ui/button";
+import { buttonVariants } from "./ui/button";
 import { usePathname } from "next/navigation";
-import { SignOutButton, UserButton } from "@clerk/nextjs";
-import { Suspense } from "react";
+import { UserButton } from "@clerk/nextjs";
+import getUserName from "../hooks/user";
 
 export default function SideNav() {
   const pathname = usePathname();
@@ -32,10 +25,10 @@ export default function SideNav() {
       <Link href="/painel">
         <div className="flex justify-center align-items-center lg:h-44 relative lg:pl-0 pl-1 lg:pt-4">
           <div className="lg:h-14 lg:w-48 w-20 h-20 relative dark:hidden">
-            <Image src="/logo5.png" alt="logo" fill />
+            <Image src="/logo5.png" alt="logo" fill priority sizes="100vh" />
           </div>
-          <div className="dark:lg:h-14 dark:lg:w-48 dark:w-20 dark:h-20 dark:relative dark:block hidden">
-            <Image src="/logo7.png" alt="logo" fill />
+          <div className="dark:lg:h-14 dark:lg:w-48 dark:w-20 dark:h-20 relative dark:block hidden">
+            <Image src="/logo7.png" alt="logo" fill priority sizes="100vh" />
           </div>
         </div>
       </Link>
@@ -88,7 +81,7 @@ export default function SideNav() {
           <p className="hidden text-gray-500 lg:block">Term. sessão</p>
         </div> */}
         <UserButton afterSignOutUrl="/" />
-
+        <p className="pt-1">{getUserName()}</p>
         <div className="lg:my-10 lg:pr-0 pr-4">
           <ModeToggle />
         </div>
