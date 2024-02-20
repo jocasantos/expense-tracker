@@ -7,7 +7,7 @@ import ModeToggle from "./ui/modetoggle";
 import { buttonVariants } from "./ui/button";
 import { usePathname } from "next/navigation";
 import { UserButton } from "@clerk/nextjs";
-import getUserName from "../hooks/user";
+import getUserName from "../hooks/useUserInfo";
 
 export default function SideNav() {
   const pathname = usePathname();
