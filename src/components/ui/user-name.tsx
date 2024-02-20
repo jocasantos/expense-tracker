@@ -1,8 +1,7 @@
 "use client";
 import { useUser } from "@clerk/nextjs";
 
-
-export default function getUserName() {
+export default function GetUserName() {
   const { isLoaded, isSignedIn, user } = useUser();
 
   if (!isLoaded || !isSignedIn) {
@@ -10,8 +9,6 @@ export default function getUserName() {
   }
 
   const fullName = `${user.firstName} ${user.lastName}`;
-
-  
 
   return fullName;
 }

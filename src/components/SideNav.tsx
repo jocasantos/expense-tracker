@@ -7,7 +7,7 @@ import ModeToggle from "./ui/modetoggle";
 import { buttonVariants } from "./ui/button";
 import { usePathname } from "next/navigation";
 import { UserButton } from "@clerk/nextjs";
-import getUserName from "./ui/UserName";
+import GetUserName from "./ui/user-name";
 
 export default function SideNav() {
   const pathname = usePathname();
@@ -81,7 +81,7 @@ export default function SideNav() {
           <p className="hidden text-gray-500 lg:block">Term. sessão</p>
         </div> */}
         <UserButton afterSignOutUrl="/" />
-        <p className="pt-1">{getUserName()}</p>
+        <p className="pt-1">{GetUserName()}</p>
         <div className="lg:my-10 lg:pr-0 pr-4">
           <ModeToggle />
         </div>
