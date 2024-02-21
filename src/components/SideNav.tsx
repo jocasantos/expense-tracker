@@ -16,6 +16,8 @@ export default function SideNav() {
     return pathname === path ? "default" : "ghost";
   }
 
+  const firstName = GetUserName();
+
   return (
     <nav className=" place-content-between   flex w-full lg:flex-col  rounded-lg backdrop-filter backdrop-blur-md bg-opacity-10 border-4  border-blue-200">
       {/* -translate-x-full overflow-hidden */}
@@ -81,7 +83,7 @@ export default function SideNav() {
           <p className="hidden text-gray-500 lg:block">Term. sessão</p>
         </div> */}
         <UserButton afterSignOutUrl="/" />
-        <p className="pt-1">{GetUserName()}</p>
+        {firstName === "null" ? <p></p> : <p className="pt-1">{firstName}</p>}
         <div className="lg:my-10 lg:pr-0 pr-4">
           <ModeToggle />
         </div>

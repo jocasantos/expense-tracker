@@ -8,7 +8,7 @@ export default function GetUserName() {
     return null;
   }
 
-  const fullName = `${user.firstName} ${user.lastName}`;
+  const firstName = `${user.firstName}`;
 
-  return fullName;
+  return firstName;
 }
