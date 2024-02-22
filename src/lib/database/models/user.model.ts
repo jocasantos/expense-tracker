@@ -7,4 +7,6 @@ const UserSchema = new Schema({
     lastName: {type: String},
 })
 
-const User = models?.User || model('Expense', UserSchema)
+const User = models?.User || model('User', UserSchema)
+
+export default User

@@ -11,7 +11,7 @@ export default function Dashboard() {
       </div>
       <MaxWidthWrapper>
         <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
-          <div className="h-28 w-36 relative ">
+          <div className="h-28 w-36 relative mb-2">
             <Image src="/logo3.png" alt="logo" fill sizes="100vh" />
           </div>
           <h1 className="z-20 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-white">
