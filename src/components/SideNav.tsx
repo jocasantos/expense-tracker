@@ -6,7 +6,7 @@ import { CreditCard, HandCoins, LayoutDashboard } from "lucide-react";
 import ModeToggle from "./ui/modetoggle";
 import { buttonVariants } from "./ui/button";
 import { usePathname } from "next/navigation";
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, useUser } from "@clerk/nextjs";
 import GetUserName from "./ui/user-name";
 import { Skeleton } from "./ui/skeleton";
 
@@ -18,6 +18,8 @@ export default function SideNav() {
   }
 
   const firstName = GetUserName();
+
+  const { isLoaded: isUserLoaded } = useUser();
 
   return (
     <nav className=" place-content-between   flex w-full lg:flex-col  rounded-lg backdrop-filter backdrop-blur-md bg-opacity-10 border-4  border-blue-200">
@@ -72,19 +74,21 @@ export default function SideNav() {
 
       <div className="lg:h-60 lg:block hidden"></div>
       <div className="flex lg:flex-col items-center lg:space-x-0 lg:px-5 space-x-6 flex-row ml-5 lg:ml-0">
-        {/* <div className=" lg:mb-2 ">
-          <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback></AvatarFallback>
-          </Avatar>
-        </div>
-        <p className="hidden lg:block">Mock Name</p> */}
-        {/* <div className="flex space-x-2 py-5">
-          <LogOut />
-          <p className="hidden text-gray-500 lg:block">Term. sessão</p>
-        </div> */}
-        <UserButton afterSignOutUrl="/" />
-        {firstName === "null" ? <p></p> : <p className="pt-1">{firstName}</p>}
+        {isUserLoaded ? (
+          <>
+            <UserButton afterSignOutUrl="/" />
+            {firstName === "null" ? (
+              <p></p>
+            ) : (
+              <p className="pt-1">{firstName}</p>
+            )}
+          </>
+        ) : (
+          <>
+            <Skeleton className="w-[33px] h-[33px] rounded-full mb-2" />
+            <Skeleton className="w-[60px] h-[20px] rounded-full" />
+          </>
+        )}
         <div className="lg:my-10 lg:pr-0 pr-4">
           <ModeToggle />
         </div>
