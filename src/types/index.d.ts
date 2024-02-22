@@ -6,11 +6,13 @@ declare type CreateUserParams = {
     email: string;
     firstName: string;
     lastName: string;
+    photo: string;
   };
   
   declare type UpdateUserParams = {
     firstName: string;
     lastName: string;
+    photo: string;
   };
   
   // ====== EXPENSE PARAMS

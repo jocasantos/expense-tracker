@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 
 export default authMiddleware({
-    publicRoutes: ['/api/webhooks/clerk'],
+    publicRoutes: ['/api/webhooks/clerk', '/'],
 
   afterAuth (auth, req, evt)  {
     // Handle users who aren't authenticated
