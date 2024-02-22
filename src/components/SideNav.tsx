@@ -8,6 +8,7 @@ import { buttonVariants } from "./ui/button";
 import { usePathname } from "next/navigation";
 import { UserButton } from "@clerk/nextjs";
 import GetUserName from "./ui/user-name";
+import { Skeleton } from "./ui/skeleton";
 
 export default function SideNav() {
   const pathname = usePathname();
@@ -36,7 +37,7 @@ export default function SideNav() {
       </Link>
       <div className=" lg:block lg:-mt-8 hidden"></div>
 
-      <div className="flex lg:flex-col lg:space-y-6 lg:pt-6 lg:px-4 lg:items-stretch flex-row items-center space-x-2 lg:space-x-0">
+      <div className="flex lg:flex-col  lg:space-y-6 lg:pt-6 lg:px-4 lg:items-stretch flex-row items-center space-x-2 lg:space-x-0">
         <Link
           className={buttonVariants({
             className: "text-lg rounded-md ",
@@ -69,7 +70,7 @@ export default function SideNav() {
         </Link>
       </div>
 
-      <div className="lg:h-60  lg:block hidden"></div>
+      <div className="lg:h-60 lg:block hidden"></div>
       <div className="flex lg:flex-col items-center lg:space-x-0 lg:px-5 space-x-6 flex-row ml-5 lg:ml-0">
         {/* <div className=" lg:mb-2 ">
           <Avatar>
