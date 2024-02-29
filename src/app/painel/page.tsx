@@ -1,3 +1,3 @@
 export default function Painel() {
-  return <h1>Painel</h1>;
+  return <div className="font-bold text-4xl tracking-tighter mb-4">Painel</div>;
 }

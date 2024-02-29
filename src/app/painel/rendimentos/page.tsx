@@ -1,3 +1,5 @@
 export default function Rendimentos() {
-  return <h1>Rendimentos</h1>;
+  return (
+    <div className="font-bold text-4xl tracking-tighter mb-4">Rendimentos</div>
+  );
 }
