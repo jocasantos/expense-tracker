@@ -31,26 +31,39 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Link from "next/link";
+import { ExpenseFormProps, defaultValues } from "@/types/index.d";
+import { useTheme } from "next-themes";
 
 const formSchema = z.object({
   Descrição: z
     .string()
     .min(1, { message: "Insira a descrição da despesa" })
     .max(50, { message: "Descrição demasiado longa" }),
+  Categoria: z.string({ required_error: "Escolha uma categoria" }),
   Valor: z.coerce.number({ invalid_type_error: "Insira o valor da despesa" }),
   Data: z.date(),
-  Categoria: z.string({ required_error: "Escolha uma categoria" }),
 });
 
-const ExpenseForm = () => {
+const ExpenseForm = ({ action, data }: ExpenseFormProps) => {
+  const { theme, resolvedTheme } = useTheme(); // Access the theme state
+
+  // Determine the text color based on the theme
+  const textColor = resolvedTheme === "dark" ? "text-white" : "text-black";
+
+  const initialValues =
+    data && action === "Update"
+      ? {
+          Descrição: data.title,
+          Categoria: data.category,
+          Valor: data.amount,
+          Data: data.date,
+        }
+      : defaultValues;
+
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      Descrição: "",
-
-      Data: new Date(),
-    },
+    defaultValues: initialValues,
   });
 
   // 2. Define a submit handler.
@@ -70,7 +83,7 @@ const ExpenseForm = () => {
               <FormLabel className="text-blue-500">Descrição</FormLabel>
               <FormControl>
                 <Input
-                  className="text-black"
+                  className="${textColor}"
                   placeholder="ex: cinema"
                   {...field}
                 />
@@ -117,7 +130,7 @@ const ExpenseForm = () => {
               <FormControl>
                 <Input
                   type="number"
-                  className="text-black"
+                  className="${textColor}"
                   placeholder="€"
                   {...field}
                 />

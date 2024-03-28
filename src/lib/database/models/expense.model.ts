@@ -2,11 +2,12 @@ import { Schema, model, models } from "mongoose";
 
 export interface Expense extends Document {
     title: string;
-    category?: string;
+    category: string;
     amount: number;
-    date?: Date;
+    date: Date;
     createdAt: Date;
     updatedAt: Date;
+    path: string;
     user: {
         _id: string;
     }; 
@@ -19,6 +20,7 @@ const ExpenseSchema = new Schema({
     date: {type: Date},
     createdAt: {type: Date, default: Date.now},
     updatedAt: {type: Date, default: Date.now},
+    path: {type: String},
     user: {type: Schema.Types.ObjectId, ref: 'User', required: true},
 },
 { timestamps: true })

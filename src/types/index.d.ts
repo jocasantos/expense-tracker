@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 
+import { Expense } from "@/lib/database/models/expense.model";
+
 // ====== USER PARAMS
 declare type CreateUserParams = {
     clerkId: string;
@@ -37,3 +39,17 @@ declare type CreateUserParams = {
       userId: string;
       path: string;
     };
+
+    declare type ExpenseFormProps = {
+      action: "Add" | "Update";
+      userId: string;
+      data?: Expense | null;
+    };
+
+// ====== CONSTANTS
+export const defaultValues = {
+  Descrição: "",
+  Categoria: "",
+  Valor: 0,
+  Data: new Date(),
+}
