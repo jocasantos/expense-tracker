@@ -31,6 +31,7 @@ declare type CreateUserParams = {
   
   declare type UpdateExpenseParams = {
     expense: {
+        _id: string;
         title: string;
         date: string;
         category: string;

@@ -7,7 +7,8 @@ export interface Expense extends Document {
     date: Date;
     createdAt: Date;
     updatedAt: Date;
-    path: string;
+    expenseId: string;
+    secureURL: string;
     user: {
         _id: string;
     }; 
@@ -20,7 +21,8 @@ const ExpenseSchema = new Schema({
     date: {type: Date},
     createdAt: {type: Date, default: Date.now},
     updatedAt: {type: Date, default: Date.now},
-    path: {type: String},
+    expenseId: {type: String},
+    secureURL: {type: String},
     user: {type: Schema.Types.ObjectId, ref: 'User', required: true},
 },
 { timestamps: true })

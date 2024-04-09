@@ -8,6 +8,7 @@ const UserSchema = new Schema({
     photo: {type: String},
 })
 
+
 const User = models?.User || model('User', UserSchema)
 
 export default User
